@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="res">TODO write content</div>
+
+        <input type="button" value="click" onclick="accessWS()">
+
+        <script type="text/javascript">
+            function accessWS() {
+                $.ajax({
+                    url: "http://localhost:8080/HelloRestService/webresources/helloWorld/myWorld/inner",
+                    type: "GET",
+                    crossDomain: true,
+                    success: function (response) {
+                        document.getElementById('res').innerHTML = response;
+                    },
+                    error: function (xhr, status) {
+                        alert("error");
+                    }
+                });
+            }
+
+//            function accessWS() {
+//                var request = new XMLHttpRequest();
+//                request.open("GET", "http://localhost:8080/HelloRestService/webresources/helloWorld/myWorld/inner", true);
+//                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+//                request.onreadystatechange = function() {
+//                    alert(request.status);
+//                    alert(request.responseText);
+//                };
+//                request.send(null);
+//            }
+        </script>
+    </body>
+</html>
